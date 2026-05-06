@@ -176,6 +176,13 @@ std::string shell_quote(const std::string &value)
     return out;
 }
 
+void set_default_env_path(const char *name, const std::string &path)
+{
+    const char *current = std::getenv(name);
+    if (current && current[0]) return;
+    if (access(path.c_str(), R_OK) == 0) setenv(name, path.c_str(), 0);
+}
+
 std::string run_capture(const std::string &cmd)
 {
     std::string output;
@@ -1662,6 +1669,9 @@ int main(int argc, char **argv)
     g_app_dir = dirname_of(argv && argv[0] ? argv[0] : nullptr);
     const char *script_env = std::getenv("VIBAPP_SCRIPT");
     g_script_path = script_env && script_env[0] ? script_env : (g_app_dir + "/vibapp.py");
+    set_default_env_path(
+        "VIBAPP_SKILL_PATH",
+        g_app_dir + "/../share/vibapp/skills/m5stack-cardputer-applauncher/SKILL.md");
 
     lv_init();
     lv_linux_disp_init();

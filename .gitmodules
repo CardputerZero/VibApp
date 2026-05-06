@@ -1,0 +1,3 @@
+[submodule "share/vibapp/skills"]
+	path = share/vibapp/skills
+	url = git@github.com:CardputerZero/skill.git
