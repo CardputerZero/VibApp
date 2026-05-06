@@ -869,7 +869,7 @@ void header(const std::string &title, const std::string &right)
 void render_home()
 {
     clean_root();
-    header("VibAPP", g_dep_status);
+    header("VibApp", g_dep_status);
     int y = 29;
     if (!g_deps_ok) {
         label(g_root, "Missing dependency.", 9, y, 302, 16, &lv_font_montserrat_12, 0xFFD18A);
@@ -1047,13 +1047,13 @@ void render_confirm_start()
           &lv_font_montserrat_12, 0xF4F8FB, LV_LABEL_LONG_DOT);
     label(g_root, "This device has limited resources.", 8, 53, 304, 13,
           &lv_font_montserrat_10, 0xFFD18A);
-    label(g_root, "To save CPU, VibAPP will enter", 8, 70, 304, 13,
+    label(g_root, "To save CPU, VibApp will enter", 8, 70, 304, 13,
           &lv_font_montserrat_10, 0xCAD5DD);
     label(g_root, "a frozen low-refresh screen.", 8, 84, 304, 13,
           &lv_font_montserrat_10, 0xCAD5DD);
     label(g_root, "It checks status once per minute.", 8, 102, 304, 13,
           &lv_font_montserrat_10, 0xCAD5DD);
-    label(g_root, "Do not background VibAPP while it runs.", 8, 119, 304, 13,
+    label(g_root, "Do not background VibApp while it runs.", 8, 119, 304, 13,
           &lv_font_montserrat_10, 0xFFB05F);
     label(g_root, "Enter/Y start   Esc/B cancel", 8, 153, 304, 13,
           &lv_font_montserrat_10, 0x7F8B96);
@@ -1066,7 +1066,7 @@ void render_frozen_wait()
     bool running = job && job_is_running(*job);
     bool completed = job && job->status == "completed";
     bool failed = job && (job->status == "failed" || job->status == "unknown");
-    header("VibAPP Frozen", running ? "60s check" : "done");
+    header("VibApp Frozen", running ? "60s check" : "done");
 
     if (!job) {
         label(g_root, "Waiting for job state...", 8, 34, 304, 15,
@@ -1080,7 +1080,7 @@ void render_frozen_wait()
               &lv_font_montserrat_10, 0xCAD5DD);
         label(g_root, "Screen checks status every 1 minute.", 8, 72, 304, 13,
               &lv_font_montserrat_10, 0xCAD5DD);
-        label(g_root, "Keep VibAPP in foreground.", 8, 90, 304, 13,
+        label(g_root, "Keep VibApp in foreground.", 8, 90, 304, 13,
               &lv_font_montserrat_10, 0xFFD18A);
         label(g_root, "Esc/quit is disabled while building.", 8, 108, 304, 13,
               &lv_font_montserrat_10, 0xFFB05F);
@@ -1125,11 +1125,11 @@ void render_frozen_wait()
 void render_exit_prompt()
 {
     clean_root();
-    header("Exit VibAPP", "jobs running");
+    header("Exit VibApp", "jobs running");
     label(g_root, "App creation is still running.", 8, 36, 304, 15, &lv_font_montserrat_12, 0xF4F8FB);
     label(g_root, "C: exit and keep building in background", 8, 62, 304, 13, &lv_font_montserrat_10, 0xBFD0DA);
     label(g_root, "T: terminate opencode job and exit", 8, 80, 304, 13, &lv_font_montserrat_10, 0xFFB05F);
-    label(g_root, "S/Esc: stay in VibAPP", 8, 98, 304, 13, &lv_font_montserrat_10, 0xBFD0DA);
+    label(g_root, "S/Esc: stay in VibApp", 8, 98, 304, 13, &lv_font_montserrat_10, 0xBFD0DA);
 }
 
 void render_delete_prompt()
@@ -1274,7 +1274,7 @@ void handle_short_escape()
             cancel_pending_start();
             break;
         case Screen::FrozenWait:
-            g_status_message = "Keep VibAPP open while building";
+            g_status_message = "Keep VibApp open while building";
             break;
         case Screen::Modify:
             g_screen = Screen::Detail;
@@ -1627,7 +1627,7 @@ void lv_linux_indev_init() {}
 void lv_linux_disp_init()
 {
     lv_display_t *disp = lv_sdl_window_create(kScreenWidth, kScreenHeight);
-    lv_sdl_window_set_title(disp, "VibAPP");
+    lv_sdl_window_set_title(disp, "VibApp");
 }
 
 void lv_linux_indev_init()

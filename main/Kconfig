@@ -1,4 +1,4 @@
-menu "VibAPP"
+menu "VibApp"
 
 config VIBAPP_PLACEHOLDER
     bool "Placeholder"

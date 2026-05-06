@@ -62,7 +62,7 @@ if "CONFIG_V9_5_LV_USE_SDL" in os.environ:
 
 env["COMPONENTS"].append(
     {
-        "target": "M5CardputerZero-VibAPP",
+        "target": "M5CardputerZero-VibApp",
         "SRCS": SRCS,
         "INCLUDE": INCLUDE,
         "PRIVATE_INCLUDE": PRIVATE_INCLUDE,
